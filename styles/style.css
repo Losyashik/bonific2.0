@@ -1,0 +1,550 @@
+@font-face {
+    font-family: SlimamifBold;
+    src: url("fonts/20451.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+/*ко всему*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: SlimamifBold;
+    font-weight: bold;
+}
+
+/*фон*/
+
+body {
+    background: url("../img/fon.jpg");
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+
+/*создание контейнера*/
+
+.flex {
+    display: flex;
+    width: 100%;
+    background-color: rgba(255, 147, 49, 0.9);
+}
+
+/*разметка флекса*/
+
+.flex div {
+    width: 50%;
+}
+
+/*отступы блока с логотипом*/
+
+.flex .logo {
+    margin: 0.4% 1%;
+}
+
+/*размер изображения*/
+
+.flex .logo img {
+    width: 20%;
+}
+
+/*расположение кнопки*/
+
+.button_block {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*вид кнопки*/
+
+.button_block a {
+    text-decoration: none;
+    padding: 1% 7%;
+    text-align: center;
+    color: rgb(233 136 47);
+    background-color: rgb(97 19 17 / 90%);
+    font-size: 1.3em;
+    border: 1px solid;
+    border-radius: 10px;
+    margin: 1.7%;
+    display: block;
+}
+
+/*наведение на кнопку*/
+
+.button_block a:hover {
+    color: rgb(255, 255, 255);
+    background-color: rgb(97 19 17);
+}
+
+/*меню для мобилки и планшета*/
+
+.burger {
+    display: none;
+    margin: 1.7%;
+    width: 14%;
+}
+
+/*изображение иконки меню*/
+
+.burger img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Слайдер */
+
+.slick-slider {
+    position: relative;
+    padding: 3vh 5vw;
+}
+
+/* Ограничивающая оболочка */
+
+.slick-list {
+    overflow: hidden;
+}
+
+/* Лента слайдов */
+
+.slick-track {
+    display: flex;
+}
+
+/* Стрелка */
+
+.slick-arrow {
+    position: absolute;
+    top: 40%;
+    z-index: 15;
+    font-size: 0;
+    width: 80px;
+    height: 100px;
+}
+
+/* Стрелка влево */
+
+.slick-arrow.slick-prev {
+    left: 0;
+    background: url("../img/slider/arrow/prev.png") 0 0 / 100% no-repeat;
+    border: 0;
+}
+
+/* Стрелка вправо */
+
+.slick-arrow.slick-next {
+    right: 0;
+    background: url("../img/slider/arrow/next.png") 0 0 / 100% no-repeat;
+    border: 0;
+}
+
+/* Точки (булиты) */
+
+.slick-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*размещение точки*/
+
+.slick-dots ul {
+    top: -50%;
+}
+
+/*вид точек*/
+
+.slick-dots li {
+    list-style: none;
+    margin: 0 1vw;
+}
+
+/* Активная точка */
+
+.slick-dots li.slick-active button {
+    background-color: rgba(71, 71, 71, 0.9);
+    border: #fff 1px solid;
+}
+
+/* Элемент точки */
+
+.slick-dots li button {
+    font-size: 0;
+    width: 12px;
+    height: 12px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: #fff;
+}
+
+/*изображение в слайдере*/
+
+.slaid img {
+    border-radius: 20px;
+    border: 10px solid #fff;
+    width: 95%;
+    height: 450px;
+    margin: 0 2%;
+}
+
+/*вторая панель навигации флекс контейнер*/
+
+.nav {
+    background-color: rgba(255, 147, 49, 0.9);
+    display: flex;
+    justify-content: center;
+}
+
+/*флекс пункты меню*/
+
+.nav ul {
+    display: flex;
+    width: 40%;
+    height: 100%;
+}
+
+/*размещение пунктов*/
+
+.nav li {
+    display: block;
+    list-style: none;
+    text-align: center;
+    width: 20%;
+    height: 100%;
+}
+
+/*картинки в меню*/
+
+.nav img {
+    margin: 3% 3%;
+}
+
+/*место под лого*/
+
+.nav .logo {
+    width: 30%;
+}
+
+/*лого при фиксации меню*/
+
+.nav .logo img {
+    display: none;
+    width: 40%;
+}
+
+/*вид пунктов фикс-меню*/
+
+.nav li a {
+    height: calc(100% - 1vh);
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    color: #000;
+    padding: 1.5vh 0;
+    user-select: none;
+    cursor: pointer;
+}
+
+/*вид при наведении пунктов фикс-меню*/
+
+.nav li a:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.nav li a.selected {
+    background-color: #000;
+    color: #fff;
+}
+
+/*характеристики картинки фикс-меню*/
+
+.nav li a img {
+    display: block;
+    width: 42%;
+    margin: 0 auto;
+    height: 80%;
+}
+
+/*размещение контейнера корзины*/
+
+.nav .basket {
+    width: 30%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*блок с корзины*/
+
+.nav .basket .open_basket {
+    width: 20%;
+    height: 100%;
+    margin: 0 6vw;
+}
+
+/*расположение картинки корзины*/
+
+.nav .basket .open_basket img {
+    width: 80%;
+    display: block;
+    height: 80%;
+    margin: 10% 0;
+}
+
+/* ПИДОР. ЗАПОМНИ ЭТО ЦЫФЕРКА В КАРЗИНЕ */
+.nav .basket .open_basket .count {
+    font-family: fantasy;
+    font-weight: normal;
+    font-size: 95%;
+    position: relative;
+    content: "0";
+    display: block;
+    height: 0;
+    top: -65%;
+    left: 58%;
+}
+
+/*наведение на картинку корзины*/
+
+.nav .basket .open_basket img:hover {
+    opacity: 0.8;
+}
+
+/*основной блок с товаром флекс-конт*/
+
+.conteiner {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*блок товара*/
+
+.conteiner .con_item {
+    margin: 1% auto;
+    padding: 1%;
+    width: 20%;
+    background-color: rgb(17 17 17 / 58%);
+    text-decoration: none;
+    border-radius: 20px;
+}
+
+/*расположение каринки товара*/
+
+.conteiner .con_item img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/*параметры названия товара(текста) */
+
+.conteiner .con_item h1 {
+    color: #ffffff;
+    margin: 1vh auto;
+    width: 95%;
+    border-radius: 20px;
+    font-size: 155%;
+}
+
+/*переключалка раположение*/
+
+.conteiner .check {
+    margin: 0 0 0 0;
+    font-size: 13pt;
+    float: left;
+}
+
+/*вид переключателей*/
+
+.conteiner .check span {
+    display: block;
+    float: left;
+    color: #000;
+    padding: 0.2vw 0.4vw;
+    text-align: center;
+    border: 2px solid #fff;
+    background-color: #ccc;
+    cursor: pointer;
+    user-select: none; /*Убираем возможность выделять текст*/
+}
+
+/*скругление левой*/
+
+.conteiner span.right {
+    border-radius: 0 10px 10px 0;
+}
+
+/*скругление левой*/
+
+.conteiner span.left {
+    border-radius: 10px 0 0 10px;
+}
+
+/*активный блок переключалки*/
+
+.conteiner span.check_on {
+    background-color: #fff;
+    box-shadow: inset 0 0 10px #000;
+}
+
+/*блок с выводом цены размещение и вид*/
+
+.conteiner .con_item div.price {
+    font-size: 18pt;
+    width: 50%;
+    margin: 0 0 0 50%;
+    text-align: center;
+    background: rgb(255, 255, 255);
+    border-radius: 1vw;
+}
+
+/*облать нажатия кнопки*/
+
+.conteiner .con_item .submit {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    user-select: none;
+}
+
+/*заполнение кнопки добавить в корзину*/
+
+.conteiner .con_item .submit h2 {
+    margin: 5% auto 0 auto;
+    padding: 0.4vw 0;
+    text-align: center;
+    color: #fff;
+    background-color: rgb(244 143 51);
+    border: 1px solid #000;
+    border-radius: 5px;
+}
+
+/*Размещение подвала*/
+
+footer {
+    bottom: 0;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(255, 147, 49, 0.9);
+}
+
+/*общий блок модал*/
+
+.modal_window {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 15;
+    display: block;
+}
+
+/*блок затемнение модал*/
+
+.modal_window .hiden_block {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/*блок формы модал*/
+
+.modal_window img.fon {
+    position: fixed;
+    display: block;
+    margin: 0;
+    width: auto;
+    top: -39px;
+    height: 100%;
+    left: 21%;
+}
+.modal_window form {
+    position: fixed;
+    left: 30%;
+    width: 40%;
+    top: 10%;
+    border-radius: 45px;
+    color: #fff;
+}
+/* Блок для заполнения личной информации при оформлении заказа */
+.modal_window form .basket__information {
+    display: none;
+}
+
+/*Закрывалка изображение модал*/
+
+.modal_window img {
+    width: 10%;
+    margin: 2% 0px 0px 85%;
+}
+
+/*первый заголовок модал*/
+
+.modal_window form h2 {
+    text-align: center;
+}
+
+/*подзаголовки заголовок модал*/
+
+.modal_window form h4 {
+    text-align: center;
+    margin: 2% 0% -2% 0%;
+}
+
+/*размещение полей ввода модал*/
+
+.modal_window form input {
+    display: block;
+    margin: 1vh auto;
+    height: 4vh;
+    width: 80%;
+    border-radius: 200px;
+    text-align: center;
+}
+/* способ оплаты */
+.modal_window form .payment {
+    display: flex;
+    width: 50%;
+    margin: 3% auto;
+}
+/* надписи в способе оплаты */
+.modal_window form .payment label {
+    width: 50%;
+    text-align: center;
+    display: block;
+}
+/* радио кнопки */
+.modal_window form .payment label input {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    margin: 2%;
+}
+/* цена при оформлении */
+.modal_window form .final_price {
+    padding: 0 10%;
+    font-size: 110%;
+}
+/* блок с кнопками  */
+.modal_window form .navigation {
+    display: flex;
+    justify-content: center;
+}
+/* кнопки  */
+.modal_window form .navigation input {
+    width: 30%;
+    font-size: 110%;
+    height: auto;
+    color: #000;
+    margin: auto 2%;
+}
+/*размещение кнопки доп модал*/
+
+.modal_window form input {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
