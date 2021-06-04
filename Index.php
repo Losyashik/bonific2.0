@@ -132,12 +132,12 @@
         <div class="hiden_block" data="basket"></div>
         <img src="img/form_fon.png" alt="" class="fon">
         <form action="" method="post" class="basket">
-            <div class="basket__products" style="display: none;">
+            <div class="basket__products" >
                 <div class="products"></div>
                 <input type="submit" value="Оформить заказ">
             </div>
 
-            <div class="basket__information" style="display: block;">
+            <div class="basket__information">
                 <h2>Контактная информация</h2>
                 <h4>Форма обращения</h4>
                 <input type="text" name="fullName">
