@@ -1,4 +1,15 @@
 count = 0;
+function ajaxBasket(data, url) {
+    blockContent = $(".conteiner")
+    $.ajax({
+        url: url,
+        method: 'post',
+        data: {products:data},
+        success: function (text) {
+            $('.products').html(text);
+        }
+    })
+}
 $('.open_modal_window').on('click', event => {
     moadlId = event.target.dataset.id;
     $('#' + moadlId).show()
@@ -22,17 +33,58 @@ $(document).on('click', '.check_price', event => {
     /*изменение данных в корзину*/
     $(add).data({ price: $(item).data('price'), size: $(item).data('size') });
 })
-$(document).on('click', '.submit', event => {
-    count++;
-    if(count>9 && count<99){
-        $('.count').css({'font-size': '80%',left: '57%'})
-        $('.count').html(count)
+function counter(action) {
+    if (action == 'add')
+        localStorage.counter++;
+    else if (action == 'remove')
+        localStorage.counter--;
+    if (localStorage.counter > 9 && localStorage.counter < 99) {
+        $('.count').css({ 'font-size': '80%', left: '57%' })
+        $('.count').html(localStorage.counter)
     }
-    else if(count>99){
-        $('.count').css({top: '-9.3vh','font-size': '85%',left: '3.3vw'})
+    else if (localStorage.counter > 99) {
+        $('.count').css({ top: '-9.3vh', 'font-size': '85%', left: '3.3vw' })
         $('.count').html('. . .');
     }
     else
-        $('.count').html(count)
-    console.log($(event.currentTarget).data());
+        $('.count').html(localStorage.counter)
+
+}
+$(document).on('click', '.submit', event => {
+    counter('add');
+    productId = $(event.currentTarget).data('id')
+    if (typeof $(event.currentTarget).data('size') !== 'undefined') {
+        size = $(event.currentTarget).data('size')
+        if (productId + '_' + size in dataBasket) {
+            for (let key in dataBasket) {
+                productData = dataBasket[key];
+                if (key == productId + '_' + size && productData['size'] == size) {
+                    productData['count']++;
+                    dataBasket[key] = productData;
+                    break;
+                }
+            }
+        }
+        else {
+            dataBasket[productId + '_' + size] = { id: productId, count: 1, size: size };
+        }
+    }
+    else {
+        dataBasket[productId] = { id: productId, count: 1 };
+        if (productId in dataBasket) {
+            for (let key in dataBasket) {
+                productData = dataBasket[key];
+                if (key == productId) {
+                    productData['count']++;
+                    dataBasket[key] = productData;
+                    break;
+                }
+            }
+        }
+        else {
+            dataBasket[productId] = { id: productId, count: 1 };
+        }
+    }
+    localStorage.setItem('basket',JSON.stringify(dataBasket));
+    ajaxBasket(dataBasket,'scripts/basket.php');
 })

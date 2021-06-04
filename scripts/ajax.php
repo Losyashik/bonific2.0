@@ -14,16 +14,22 @@ if ($result and $result->num_rows > 0) {
             if($elem['id_type']==1){
                 $result.=' 
                 <div class="check">
-                    <span class="left check_on check_price" data-size="35" data-price="'.$elem['price'].'">35 см</span>
+                    <span class="left check_on check_price" data-size="35">35 см</span>
                     <span class="right check_price" data-size="40" data-price="'.$elem['dbl_price'].'">40 см</span>
+                </div>
+                <div class="price pizza">'.$elem['price'].'</div>
+                <a class="submit" data-id="'.$elem['id'].'" data-size="35" >
+                    <h2>В корзину</h2>
+                </a>
                 </div>';
             }
-            $result.=   
-            '<div class="price pizza">'.$elem['price'].'</div>
-            <a class="submit" data-id="'.$elem['id'].'" data-size="35" data-price="'.$elem['price'].'">
-                <h2>В корзину</h2>
-            </a>
-        </div>';
+            else{
+                $result.='<div class="price pizza">'.$elem['price'].'</div>
+                <a class="submit" data-id="'.$elem['id'].'">
+                    <h2>В корзину</h2>
+                </a>
+                </div>';
+            }
     }
     echo $result;
 } else {

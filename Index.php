@@ -17,10 +17,17 @@
 
 
     <script type="text/javascript">
+        localStorage.clear()
         window.onload = function() {
             updateContent(1, 'scripts/ajax.php');
         }
-
+        if(typeof dataBasket === 'undefined' && localStorage.getItem('basket')===null){
+            var dataBasket = {};
+            localStorage.counter = 0;
+        }
+        else if(localStorage.getItem('basket') !== null){
+            var dataBasket = JSON.parse(localStorage.getItem('basket'));
+        }
         function adimin_on() {
             if (event.shiftKey && event.ctrlKey) {
                 event.preventDefault()
@@ -125,31 +132,12 @@
         <div class="hiden_block" data="basket"></div>
         <img src="img/form_fon.png" alt="" class="fon">
         <form action="" method="post" class="basket">
-            <div class="basket__products">
-                <div class="products">
-                    <div class="products__item">
-                        <div class="products__img"><img src="img/product/1.png" alt=""></div>
-                        <div class="products__info">
-                            <h4>Lorem, ipsum.</h4>
-                            <div class="products__discription">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates repellat at debitis alias fuga sequi libero illum sapiente recusandae?
-                            </div>
-                            <div class="products__nav">
-                                <div class="counter">
-                                    <span class="counter__minus">&mdash;</span>
-                                    <span class="counter__count">1</span>
-                                    <span class="counter__plus">+</span>
-                                </div>
-                                <div class="price">500</div>
-                            </div>
-                        </div>
-                        <div class="products__delete"><img src="img/ico/close.png" alt=""></div>
-                    </div>
-                </div>
+            <div class="basket__products" style="display: none;">
+                <div class="products"></div>
                 <input type="submit" value="Оформить заказ">
             </div>
 
-            <div class="basket__information">
+            <div class="basket__information" style="display: block;">
                 <h2>Контактная информация</h2>
                 <h4>Форма обращения</h4>
                 <input type="text" name="fullName">
@@ -163,8 +151,8 @@
                 </div>
                 <h4>Способ оплаты</h4>
                 <div class="payment">
-                    <label><input type="radio" name="" id="">Наличными</label>
-                    <label><input type="radio" name="" id="">Картой</label>
+                    <label><input type="radio" name="payment" id="">Наличными</label>
+                    <label><input type="radio" name="payment" id="">Картой</label>
                 </div>
                 <div class="navigation">
                     <input type="submit" id='back' onclick="event.preventDefault();" value="Назад">
@@ -182,18 +170,7 @@
             value = $(event.currentTarget).data('value');
             updateContent(value, 'scripts/ajax.php');
         })
-        data = {products:{product:{id:1,size:20,col:60}}};
-        function ajaxTest(data, url) {
-            blockContent = $(".conteiner")
-            $.ajax({
-                url: url,
-                method: 'post',
-                data: data,
-                success: function(text) {
-                    alert(text)
-                }
-            })
-        }
+        
     </script>
 </body>
 

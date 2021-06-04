@@ -14,6 +14,10 @@
   font-weight: bold;
 }
 
+::-webkit-scrollbar {
+  width: 0;
+}
+
 /*фон*/
 body {
   background: url("../img/fon.jpg");
@@ -468,7 +472,7 @@ footer {
 /*подзаголовки заголовок модал*/
 .modal_window form h4 {
   text-align: center;
-  margin: 2% 0% -2% 0%;
+  margin: 2% 0% 2% 0%;
 }
 
 /*размещение полей ввода модал*/
@@ -516,6 +520,7 @@ footer {
   top: -39px;
   height: 100%;
   left: 21%;
+  width: 56%;
 }
 
 /* Форма карзины */
@@ -533,6 +538,7 @@ footer {
   scrollbar-width: none;
 }
 
+/* Скрытие скролбара блока */
 .modal_window#basket form .basket__products .products::-webkit-scrollbar {
   width: 0;
 }

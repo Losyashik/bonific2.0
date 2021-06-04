@@ -12,6 +12,7 @@
     font-family: SlimamifBold;
     font-weight: bold;
 }
+::-webkit-scrollbar { width: 0; }
 
 /*фон*/
 
@@ -469,7 +470,7 @@ footer {
 /*подзаголовки заголовок модал*/
 .modal_window form h4 {
     text-align: center;
-    margin: 2% 0% -2% 0%;
+    margin: 2% 0% 2% 0%;
 }
 /*размещение полей ввода модал*/
 .modal_window form input {
@@ -513,6 +514,7 @@ footer {
     top: -39px;
     height: 100%;
     left: 21%;
+    width: 56%;
 }
 /* Форма карзины */
 .modal_window#basket form.basket{
@@ -528,6 +530,7 @@ footer {
     overflow: auto;
     scrollbar-width: none; 
 }
+/* Скрытие скролбара блока */
 .modal_window#basket form .basket__products .products::-webkit-scrollbar { width: 0; }
 /* Блок товара */
 .modal_window#basket form .products__item{
