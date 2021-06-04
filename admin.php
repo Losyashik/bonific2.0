@@ -32,6 +32,7 @@ if (isset($_SESSION['admin'])) {
 	<body>
 		<div class='modal_window login' id='login'>
 			<div class='hiden_block' data='login'></div>
+			<img src='img/form_fon.png' class='fon'>
 			<form action='' class='login' method='POST'>
 				<h2>Авторизация</h2>
 				<h4>Логин</h4>

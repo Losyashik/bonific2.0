@@ -87,18 +87,14 @@
             </li>
         </ul>
         <div class="basket">
-            <div data-id="basket" class=" open_basket">
-                <img src="img/ico/korzina.png" class="open_modal_window" alt="корзина">
+            <div data-id="basket" class="open_basket">
+                <img src="img/ico/korzina.png" class="open_modal_window" data-id="basket" alt="корзина">
                 <div class='count'>0</div>
             </div>
         </div>
     </nav>
 
-    <div class="conteiner">
-
-
-
-    </div>
+    <div class="conteiner"></div>
 
     <footer>
         <div>
@@ -124,14 +120,35 @@
             </dim>
         </div>
     </footer>
-
-    <div class="modal_window login" id="basket">
+    
+    <div class="modal_window" id="basket">
         <div class="hiden_block" data="basket"></div>
         <img src="img/form_fon.png" alt="" class="fon">
         <form action="" method="post" class="basket">
-            <div class="basket__product">
-                
+            <div class="basket__products">
+                <div class="products">
+                    <div class="products__item">
+                        <div class="products__img"><img src="img/product/1.png" alt=""></div>
+                        <div class="products__info">
+                            <h4>Lorem, ipsum.</h4>
+                            <div class="products__discription">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati voluptates repellat at debitis alias fuga sequi libero illum sapiente recusandae?
+                            </div>
+                            <div class="products__nav">
+                                <div class="counter">
+                                    <span class="counter__minus">&mdash;</span>
+                                    <span class="counter__count">1</span>
+                                    <span class="counter__plus">+</span>
+                                </div>
+                                <div class="price">500</div>
+                            </div>
+                        </div>
+                        <div class="products__delete"><img src="img/ico/close.png" alt=""></div>
+                    </div>
+                </div>
+                <input type="submit" value="Оформить заказ">
             </div>
+
             <div class="basket__information">
                 <h2>Контактная информация</h2>
                 <h4>Форма обращения</h4>
@@ -165,6 +182,18 @@
             value = $(event.currentTarget).data('value');
             updateContent(value, 'scripts/ajax.php');
         })
+        data = {products:{product:{id:1,size:20,col:60}}};
+        function ajaxTest(data, url) {
+            blockContent = $(".conteiner")
+            $.ajax({
+                url: url,
+                method: 'post',
+                data: data,
+                success: function(text) {
+                    alert(text)
+                }
+            })
+        }
     </script>
 </body>
 
