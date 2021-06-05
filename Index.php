@@ -21,7 +21,7 @@
         window.onload = function() {
             updateContent(1, 'scripts/ajax.php');
             ajaxBasket(dataBasket, "scripts/basket.php");
-            finalPrice(dataBasket)
+            $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
             counter();
         }
         if (typeof dataBasket === 'undefined' && localStorage.getItem('basket') === null) {
