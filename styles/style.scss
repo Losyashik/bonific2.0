@@ -194,6 +194,8 @@ body {
 .nav {
     background-color: rgba(255, 147, 49, 0.9);
     display: flex;
+    position: sticky;
+    top:0;
     justify-content: center;
 }
 
@@ -537,6 +539,9 @@ footer {
     display: flex;
     height: 40%;
     margin: 2% auto;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 1%;
 }
 /* Блок изображения товара в карзине */
 .modal_window#basket form .products__item .products__img{
@@ -550,7 +555,7 @@ footer {
     width: calc(100% - 4px);
     height: calc(100% - 4px);
     border-radius: 20px;
-    border: 2px solid;
+    border: 1px solid;
 }
 /* Блок информации о таваре и редактирование */
 .modal_window#basket form .products__item .products__info{
@@ -560,8 +565,8 @@ footer {
 /* Описание товара */
 .modal_window#basket form .products__item .products__info .products__discription{
     font-size: 83%;
-    margin: 4% 0 0;
-    height: 48%;
+    margin: 3% 0 0;
+    height: 45%;
     overflow: hidden;
 }
 /* Блок с таблеткой и ценой */

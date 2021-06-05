@@ -33,7 +33,7 @@ if(isset($_POST['products'])){
 					
 				echo"</div>
 			</div>
-			<div class='products__delete'><img data-basket-id = '$key' src='img/ico/close.png' alt=''></div>
+			<div class='products__delete'><img class = 'basket_delete' data-basket-id = '$key' src='img/ico/close.png' alt=''></div>
 			</div>
 			";
 		}
@@ -55,7 +55,7 @@ if(isset($_POST['products'])){
 						<div class='price' data-basket-id = '$key'>".($data['price']*$product['count'])."</div>
 				</div>
 			</div>
-			<div class='products__delete'><img data-basket-id = '$key' src='img/ico/close.png' alt=''></div>
+			<div class='products__delete'><img class = 'basket_delete' data-basket-id = '$key' src='img/ico/close.png' alt=''></div>
 			</div>
 			";
 		}

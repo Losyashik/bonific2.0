@@ -138,7 +138,7 @@
                     <span>Итого к оплате:</span>
                     <span class="output_final_prise">0</span>
                 </div>
-                <input type="submit" value="Оформить заказ">
+                <input type="submit" class='next' value="Оформить заказ">
             </div>
 
             <div class="basket__information">
@@ -155,7 +155,7 @@
                 </div>
                 <h4>Способ оплаты</h4>
                 <div class="payment">
-                    <label><input type="radio" name="payment" id="">Наличными</label>
+                    <label><input type="radio" checked name="payment" id="">Наличными</label>
                     <label><input type="radio" name="payment" id="">Картой</label>
                 </div>
                 <div class="navigation">

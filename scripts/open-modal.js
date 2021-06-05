@@ -46,9 +46,10 @@ function counter(action) {
         $('.count').css({ top: '-9.3vh', 'font-size': '85%', left: '3.3vw' })
         $('.count').html('. . .');
     }
-    else
+    else{
         $('.count').attr('style','');
         $('.count').html(localStorage.counter)
+    }
 
 }
 function finalPrice(dataBasket){
@@ -64,10 +65,10 @@ function productPrice(dataBasket,id){
 }
 $(document).on('click', '.submit', event => {
     counter('add');
-    productId = $(event.currentTarget).data('id')
-    price  = $(event.currentTarget).data('price')
+    let productId = $(event.currentTarget).data('id')
+    let price  = $(event.currentTarget).data('price')
     if (typeof $(event.currentTarget).data('size') !== 'undefined') {
-        size = $(event.currentTarget).data('size')
+        let size = $(event.currentTarget).data('size')
         if (productId + '_' + size in dataBasket) {
             for (let key in dataBasket) {
                 if (key == productId + '_' + size && dataBasket[key]['size'] == size) {
@@ -96,12 +97,11 @@ $(document).on('click', '.submit', event => {
         }
     }
     localStorage.setItem('basket',JSON.stringify(dataBasket));
-    console.log(finalPrice(dataBasket));
     $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
     ajaxBasket(dataBasket,'scripts/basket.php');
 })
 $(document).on('click', '.counter__minus', event=>{
-    id = event.currentTarget.dataset.basketId;
+    let id = event.currentTarget.dataset.basketId;
     dataBasket[id]['count']--;
     counter('remove');
     
@@ -118,11 +118,30 @@ $(document).on('click', '.counter__minus', event=>{
     $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
 })
 $(document).on('click', '.counter__plus', event=>{
-    id = event.currentTarget.dataset.basketId;
+    let id = event.currentTarget.dataset.basketId;
     dataBasket[id]['count']++;
     counter('add');
     $('.price[data-basket-id="'+id+'"]').html(productPrice(dataBasket,id));
     $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
     $('.counter__count[data-basket-id="'+id+'"]').html(dataBasket[id]['count'])
     localStorage.setItem('basket',JSON.stringify(dataBasket));
+})
+$(document).on('click', '.basket_delete', event=>{
+    let id = event.currentTarget.dataset.basketId;
+    localStorage.counter-=dataBasket[id]['count'];
+    delete dataBasket[id];
+    counter();
+    localStorage.setItem('basket',JSON.stringify(dataBasket));
+    ajaxBasket(dataBasket,'scripts/basket.php');
+    $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
+})
+$('.next').click(event=>{
+    event.preventDefault();
+    $(event.target).parent().hide();
+    $(event.target).parent().next().show();
+})
+$('#back').click(event=>{
+    event.preventDefault();
+    $(event.target).parent().parent().hide();
+    $(event.target).parent().parent().prev().show();
 })
