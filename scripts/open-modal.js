@@ -45,10 +45,15 @@ $('.modal_window form img, .hiden_block').on('click', event => {
 
 /*кнопки переключалка вытаскивание*/
 $(document).on('click', '.check_price', event => {
-    item = $(event.target)[0];
-    parentBlock = $(item).parent()[0];
-    price = $(parentBlock).next()[0];
-    add = $(price).next()[0];
+    let item = $(event.target)[0];
+    let parentBlock = $(item).parent()[0];
+    let price = $(parentBlock).next()[0];
+    if ($(event.currentTarget).hasClass('prev')) {
+        add = $('.submit.prev')[0];
+    }
+    else {
+        add = $(price).next()[0];
+    }
     /*работа переключалок, изменение стилей*/
     $(parentBlock).children().removeClass('check_on');
     $(item).addClass('check_on');
@@ -169,8 +174,8 @@ $('#back').click(event => {
     $(event.target).parent().parent().hide();
     $(event.target).parent().parent().prev().show();
 })
-$(document).on('click','.con_item',event => {
-    if ($('.submit').has(event.target).length === 0) {
+$(document).on('click', '.con_item', event => {
+    if ($('.submit').has(event.target).length === 0 && $('.check').has(event.target).length === 0) {
         id = event.currentTarget.dataset.id;
         ajaxPrev(id);
     }
