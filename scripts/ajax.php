@@ -25,7 +25,7 @@ if ($result and $result->num_rows > 0) {
             }
             else{
                 $result.='<div class="price pizza">'.$elem['price'].'</div>
-                <a class="submit" data-id="'.$elem['id'].'">
+                <a class="submit" data-price="'.$elem['price'].'" data-id="'.$elem['id'].'">
                     <h2>В корзину</h2>
                 </a>
                 </div>';
