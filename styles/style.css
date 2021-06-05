@@ -424,7 +424,11 @@ body {
 
 /*Размещение подвала*/
 footer {
-  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
+footer .information_conteiner {
   padding: 20px;
   text-align: center;
   display: -webkit-box;
@@ -433,11 +437,88 @@ footer {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: rgba(255, 147, 49, 0.9);
 }
 
-footer .map {
-  width: 50%;
+footer .information_conteiner .map {
+  width: 30%;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid rgba(255, 147, 49, 0.9);
+}
+
+footer .information_conteiner .map .ymaps-2-1-78-ground-pane {
+  filter: brightness(50%);
+  -ms-filter: brightness(50%);
+  -webkit-filter: brightness(50%);
+  -moz-filter: brightness(50%);
+  -o-filter: brightness(50%);
+}
+
+footer .information_conteiner .map:hover .ymaps-2-1-78-ground-pane {
+  filter: brightness(100%);
+  -ms-filter: brightness(100%);
+  -webkit-filter: brightness(100%);
+  -moz-filter: brightness(100%);
+  -o-filter: brightness(100%);
+}
+
+/* блок с иконками соц сетей */
+footer .information_conteiner .fa {
+  width: 30%;
+  padding-top: 3%;
+  border: 4px solid rgba(255, 147, 49, 0.9);
+  border-radius: 20px;
+}
+
+footer .information_conteiner .fa ul {
+  /* список с соц сетями */
+  width: 100%;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+footer .information_conteiner .fa ul li {
+  /* элемент списка для размещения соц сетей */
+  width: 40%;
+  margin: 2vh 2.5%;
+  border: 2px solid #ffffff;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+footer .information_conteiner .fa ul li a img {
+  /* ссылка на соц сеть с картинкой*/
+  display: block;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* Блок контактов */
+footer .information_conteiner .contact {
+  width: 20%;
+  padding-top: 5%;
+  margin: 0 2.5%;
+}
+
+footer .information_conteiner .contact ul {
+  /* список с контактам */
+  width: 100%;
+  list-style: none;
+}
+
+footer .information_conteiner .contact ul li {
+  /* контакт */
+  margin: 2vh 1vw;
+  line-height: 100%;
+  font-size: 150%;
 }
 
 /* Модальные окна */
@@ -506,7 +587,7 @@ footer .map {
 }
 
 /*размещение кнопки доп модал*/
-.modal_window form input[type='submit'] {
+.modal_window form input[type="submit"] {
   margin-top: 6%;
   margin-bottom: 3%;
 }
@@ -595,7 +676,7 @@ footer .map {
 }
 
 /* Описание товара */
-.modal_window#basket form .products__item .products__info .products__discription {
+.modal_window#basket form .products__item .products__info .products__description {
   font-size: 83%;
   margin: 3% 0 0;
   height: 45%;
@@ -676,7 +757,7 @@ footer .map {
   width: 100%;
 }
 
-.modal_window#basket form .basket__products input[type='submit'] {
+.modal_window#basket form .basket__products input[type="submit"] {
   width: 60%;
   margin: 1% auto;
 }
@@ -733,5 +814,129 @@ footer .map {
   height: auto;
   color: #000;
   margin: auto 2%;
+}
+
+/* Модальное окно для просмотра товара*/
+.modal_window#product img.fon {
+  /* блок фона*/
+  top: -2%;
+  height: 100%;
+  left: 20%;
+  width: 60%;
+}
+
+.modal_window#product .product {
+  /* Основное окно просмотра товара */
+  position: fixed;
+  width: 37%;
+  left: 32%;
+  color: #fff;
+  top: 22%;
+}
+
+.modal_window#product .product__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  margin: 0 0 2vh 0;
+}
+
+.modal_window#product .product__info h2 {
+  margin: 0 0 1vh 0;
+}
+
+.modal_window#product .product__img {
+  width: 50%;
+}
+
+.modal_window#product .product__img img {
+  display: block;
+  width: 100%;
+  border-radius: 20px;
+  border: 2px solid;
+}
+
+.modal_window#product .product__description {
+  width: 45%;
+  margin: 0 0 0 5%;
+}
+
+.modal_window#product .product__price {
+  padding: 0 10%;
+}
+
+.modal_window#product .product__price div.price {
+  /*блок с выводом цены размещение и вид*/
+  font-size: 18pt;
+  width: 40%;
+  margin: 0 0 0 60%;
+  text-align: center;
+  background: white;
+  color: #000;
+  border-radius: 1vw;
+}
+
+.modal_window#product .product__price .check {
+  margin: 0 0 0 0;
+  font-size: 13pt;
+  float: left;
+}
+
+.modal_window#product .product__price .check span {
+  /*вид переключателей*/
+  display: block;
+  float: left;
+  color: #000;
+  padding: 0.2vw 0.4vw;
+  text-align: center;
+  border: 2px solid #fff;
+  background-color: #ccc;
+  cursor: pointer;
+  /*Убираем возможность выделять текст*/
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.modal_window#product .product__price span.right {
+  /*скругление левой*/
+  border-radius: 0 10px 10px 0;
+}
+
+.modal_window#product .product__price span.left {
+  /*скругление левой*/
+  border-radius: 10px 0 0 10px;
+}
+
+.modal_window#product .product__price span.check_on {
+  /*активный блок переключалки*/
+  background-color: #fff;
+  -webkit-box-shadow: inset 0 0 10px #000;
+          box-shadow: inset 0 0 10px #000;
+}
+
+.modal_window#product .product .submit {
+  /*облать нажатия кнопки*/
+  display: block;
+  width: 80%;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 2vh auto;
+}
+
+.modal_window#product .product .submit h2 {
+  /*заполнение кнопки добавить в корзину*/
+  margin: 5% auto 0 auto;
+  padding: 0.4vw 0;
+  text-align: center;
+  color: #fff;
+  background-color: #f48f33;
+  border: 1px solid #000;
+  border-radius: 10px;
 }
 /*# sourceMappingURL=style.css.map */

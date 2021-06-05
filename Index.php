@@ -17,27 +17,7 @@
 
 
     <script type="text/javascript">
-        // localStorage.clear()
-        window.onload = function() {
-            updateContent(1, 'scripts/ajax.php');
-            ajaxBasket(dataBasket, "scripts/basket.php");
-            $('.output_final_prise').html(finalPrice(dataBasket)+" ₽");
-            counter();
-        }
-        if (typeof dataBasket === 'undefined' && localStorage.getItem('basket') === null) {
-            var dataBasket = {};
-            localStorage.counter = 0;
-        } else if (localStorage.getItem('basket') !== null) {
-            var dataBasket = JSON.parse(localStorage.getItem('basket'));
-            console.log(dataBasket);
-        }
-
-        function adimin_on() {
-            if (event.shiftKey && event.ctrlKey) {
-                event.preventDefault()
-                window.open('admin.php');
-            }
-        }
+        localStorage.clear()
     </script>
 
 
@@ -108,21 +88,29 @@
     <div class="conteiner"></div>
 
     <footer>
-        <div class="fa">
-
-            
+        <div class="information_conteiner">
+            <div class="fa">
+                <h2>Мы в социальных сетях</h2>
+                <ul>
+                    <li><a href="#"><img src="img/ico/vk.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/ico/odkl.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/ico/twit.png" alt=""></a></li>
+                    <li><a href="#"><img src="img/ico/inst.png" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="contact">
+                <ul>
+                    <li>г. Нижний новгород ул.Пятигорская 7</li>
+                    <li></li>
+                    <li>Bonific@bk.ru</li>
+                    <li>+49370457080</li>
+                </ul>
+            </div>
+            <div class="map">
+                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9581ffe294cfc2610d775c3f24bc30b6d983489b02f45c9e109b050a4d264a1c&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
+            </div>
         </div>
-        <div class="contact">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-        <div class="map">
-            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9581ffe294cfc2610d775c3f24bc30b6d983489b02f45c9e109b050a4d264a1c&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
-        </div>
+        <div class="cop" style="text-align: center; color:#999">© Все права защищены</div>
     </footer>
 
     <div class="modal_window" id="basket">
@@ -162,7 +150,13 @@
             </div>
         </form>
     </div>
-
+    <div class="modal_window" id="product">
+        <div class="hiden_block" data="product"></div>
+        <img src="img/form_fon.png" alt="" class="fon">
+        <div class="product">
+            
+        </div>
+    </div>
     <script src="scripts/open-modal.js"></script>
     <script>
         $('.nav_item').click(event => {

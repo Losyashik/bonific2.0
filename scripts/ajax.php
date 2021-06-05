@@ -8,7 +8,7 @@ if ($result and $result->num_rows > 0) {
     $result = "";
     foreach ($data as $elem) {
         $result .= '
-        <div class="con_item">
+        <div class="con_item" data-id = "'.$elem['id'].'">
             <img src="'.$elem['src'].'" alt="'.$elem['name'].'">
             <h1>'.$elem['name'].'</h1>';
             if($elem['id_type']==1){
@@ -17,14 +17,14 @@ if ($result and $result->num_rows > 0) {
                     <span class="left check_on check_price" data-size="35" data-price="'.$elem['price'].'">35 см</span>
                     <span class="right check_price" data-size="40" data-price="'.$elem['dbl_price'].'">40 см</span>
                 </div>
-                <div class="price pizza">'.$elem['price'].'</div>
+                <div class="price pizza">'.$elem['price'].' ₽</div>
                 <a class="submit" data-price="'.$elem['price'].'" data-id="'.$elem['id'].'" data-size="35" >
                     <h2>В корзину</h2>
                 </a>
                 </div>';
             }
             else{
-                $result.='<div class="price pizza">'.$elem['price'].'</div>
+                $result.='<div class="price pizza">'.$elem['price'].' ₽</div>
                 <a class="submit" data-price="'.$elem['price'].'" data-id="'.$elem['id'].'">
                     <h2>В корзину</h2>
                 </a>

@@ -15,7 +15,7 @@ if(isset($_POST['products'])){
 			<div class='products__img'><img src='".$data['src']."' alt=''></div>
 			<div class='products__info'>
 				<h4>".$data['name']." ".$product['size']." см</h4>
-				<div class='products__discription'>
+				<div class='products__description'>
 					".$data['description']."
 				</div>
 				<div class='products__nav'>
@@ -25,10 +25,10 @@ if(isset($_POST['products'])){
 						<span class='counter__plus' data-basket-id = '$key'>+</span>
 					</div>";
 					if($product['size']==35){
-						echo "<div class='price' data-basket-id = '$key'>".($data['price']*$product['count'])."</div>";
+						echo "<div class='price' data-basket-id = '$key'>".($data['price']*$product['count'])." ₽</div>";
 					}
 					else{
-						echo "<div class='price' data-basket-id = '$key'>".($data['dbl_price']*$product['count'])."</div>";
+						echo "<div class='price' data-basket-id = '$key'>".($data['dbl_price']*$product['count'])." ₽</div>";
 					}
 					
 				echo"</div>
@@ -43,7 +43,7 @@ if(isset($_POST['products'])){
 			<div class='products__img'><img src='".$data['src']."' alt=''></div>
 			<div class='products__info'>
 				<h4>".$data['name']."</h4>
-				<div class='products__discription'>
+				<div class='products__description'>
 					".$data['description']."
 				</div>
 				<div class='products__nav'>
@@ -52,7 +52,7 @@ if(isset($_POST['products'])){
 						<span class='counter__count' data-basket-id = '$key'>".$product['count']."</span>
 						<span class='counter__plus' data-basket-id = '$key'>+</span>
 					</div>
-						<div class='price' data-basket-id = '$key'>".($data['price']*$product['count'])."</div>
+						<div class='price' data-basket-id = '$key'>".($data['price']*$product['count'])." ₽</div>
 				</div>
 			</div>
 			<div class='products__delete'><img class = 'basket_delete' data-basket-id = '$key' src='img/ico/close.png' alt=''></div>
