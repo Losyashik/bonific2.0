@@ -8,7 +8,7 @@ if ($result and $result->num_rows > 0) {
     $result = "";
     foreach ($data as $elem) {
         $result .= '
-        <div class="con_item" data-id = "'.$elem['id'].'">
+        <div class="con_item" data-id = "'.$elem['id'].'" title="'.$elem['name'].'">
             <img src="'.$elem['src'].'" alt="'.$elem['name'].'">
             <h1>'.$elem['name'].'</h1>';
             if($elem['id_type']==1){

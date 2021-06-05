@@ -817,6 +817,10 @@ footer .information_conteiner .contact ul li {
 }
 
 /* Модальное окно для просмотра товара*/
+.modal_window#product {
+  display: none;
+}
+
 .modal_window#product img.fon {
   /* блок фона*/
   top: -2%;
