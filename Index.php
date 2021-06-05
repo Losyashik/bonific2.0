@@ -134,6 +134,10 @@
         <form action="" method="post" class="basket">
             <div class="basket__products" >
                 <div class="products"></div>
+                <div class="final_price">
+                    <span>Итого к оплате:</span>
+                    <span class="output_final_prise">0</span>
+                </div>
                 <input type="submit" value="Оформить заказ">
             </div>
 

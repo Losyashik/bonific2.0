@@ -659,6 +659,7 @@ footer {
 
 .modal_window#basket form .basket__products input[type='submit'] {
   width: 60%;
+  margin: 1% auto;
 }
 
 /* Блок для заполнения личной информации при оформлении заказа */
