@@ -427,7 +427,17 @@ footer {
   bottom: 0;
   padding: 20px;
   text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: rgba(255, 147, 49, 0.9);
+}
+
+footer .map {
+  width: 50%;
 }
 
 /* Модальные окна */

@@ -108,27 +108,20 @@
     <div class="conteiner"></div>
 
     <footer>
-        <div>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <dim class="map"></dim>
-        </div>
-        <div>
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-            <dim class="map">
+        <div class="fa">
 
-            </dim>
+            
+        </div>
+        <div class="contact">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+        <div class="map">
+            <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A9581ffe294cfc2610d775c3f24bc30b6d983489b02f45c9e109b050a4d264a1c&amp;width=100%25&amp;height=250&amp;lang=ru_RU&amp;scroll=true"></script>
         </div>
     </footer>
 

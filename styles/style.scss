@@ -431,7 +431,12 @@ footer {
     bottom: 0;
     padding: 20px;
     text-align: center;
+    display: flex;
+    justify-content: center;
     background-color: rgba(255, 147, 49, 0.9);
+}
+footer .map{
+    width: 50%;
 }
 
 
