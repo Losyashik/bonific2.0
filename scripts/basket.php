@@ -62,3 +62,7 @@ if(isset($_POST['products'])){
 		
 	}
 }
+else{
+	echo"
+		<div class='products__item' ><h2 style = 'width: 100%;'>Ваша карзина пуста</h2></div>";
+}

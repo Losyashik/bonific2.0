@@ -17,17 +17,20 @@
 
 
     <script type="text/javascript">
-        localStorage.clear()
+        // localStorage.clear()
         window.onload = function() {
             updateContent(1, 'scripts/ajax.php');
+            ajaxBasket(dataBasket, "scripts/basket.php");
+            counter();
         }
-        if(typeof dataBasket === 'undefined' && localStorage.getItem('basket')===null){
+        if (typeof dataBasket === 'undefined' && localStorage.getItem('basket') === null) {
             var dataBasket = {};
             localStorage.counter = 0;
-        }
-        else if(localStorage.getItem('basket') !== null){
+        } else if (localStorage.getItem('basket') !== null) {
             var dataBasket = JSON.parse(localStorage.getItem('basket'));
+            console.log(dataBasket);
         }
+
         function adimin_on() {
             if (event.shiftKey && event.ctrlKey) {
                 event.preventDefault()
@@ -57,17 +60,17 @@
         <?php
         $result = $link->query("SELECT src as src FROM baner WHERE NOT src = 'NULL' ORDER BY `id` ASC");
         echo $link->error;
-        for($data = [];$row = $result->fetch_assoc();$data[]=$row);
-        $result='';
-        foreach($data as $elem){
-            $result.='
+        for ($data = []; $row = $result->fetch_assoc(); $data[] = $row);
+        $result = '';
+        foreach ($data as $elem) {
+            $result .= '
                 <div class="slaid">
-                    <img src="'.$elem['src'].'" alt="">
+                    <img src="' . $elem['src'] . '" alt="">
                 </div>
             ';
         }
         ?>
-        <?= $result?>
+        <?= $result ?>
     </div>
 
 
@@ -127,12 +130,12 @@
             </dim>
         </div>
     </footer>
-    
+
     <div class="modal_window" id="basket">
         <div class="hiden_block" data="basket"></div>
         <img src="img/form_fon.png" alt="" class="fon">
         <form action="" method="post" class="basket">
-            <div class="basket__products" >
+            <div class="basket__products">
                 <div class="products"></div>
                 <div class="final_price">
                     <span>Итого к оплате:</span>
@@ -173,8 +176,10 @@
             $(event.currentTarget).addClass('selected');
             value = $(event.currentTarget).data('value');
             updateContent(value, 'scripts/ajax.php');
+            $('body,html').animate({
+                scrollTop: $('.conteiner').offset().top - 100
+            }, 500);
         })
-        
     </script>
 </body>
 

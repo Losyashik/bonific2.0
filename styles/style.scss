@@ -511,6 +511,9 @@ footer {
 }
 
 /* Карзина */
+.modal_window#basket{
+    display: none;
+}
 /*фон карзины*/
 .modal_window#basket img.fon {
     top: -39px;
@@ -528,7 +531,7 @@ footer {
 /* Товары*/
 .modal_window#basket form .basket__products .products{
     height: 50vh;
-    margin: 5vh 5%;
+    margin: 6vh 5% 2vh 5%;
     overflow: auto;
     scrollbar-width: none; 
 }
@@ -539,8 +542,7 @@ footer {
     display: flex;
     height: 40%;
     margin: 2% auto;
-    border: 1px solid;
-    border-radius: 20px;
+    border-top: 1px solid;
     padding: 1%;
 }
 /* Блок изображения товара в карзине */
