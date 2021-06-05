@@ -16,12 +16,12 @@
         if($data['id_type']==1){
             echo'
             <div class="check">
-                <span class="left check_on check_price prev" data-size="35" data-price="'.$data['price'].'">35 см</span>
-                <span class="right check_price prev" data-size="40" data-price="'.$data['dbl_price'].'">40 см</span>
+                <span class="left check_on check_price" data-size="35" data-price="'.$data['price'].'">35 см</span>
+                <span class="right check_price" data-size="40" data-price="'.$data['dbl_price'].'">40 см</span>
             </div>
             <div class="price pizza">'.$data['price'].'</div>
         </div>
-        <a class="submit prev" data-price="'.$data['price'].'" data-id="'.$data['id'].'" data-size="35">
+        <a class="submit" data-price="'.$data['price'].'" data-id="'.$data['id'].'" data-size="35">
             <h2>В корзину</h2>
         </a>
             ';
