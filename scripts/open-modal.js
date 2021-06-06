@@ -100,15 +100,16 @@ $(document).on('click', '.submit', event => {
         let size = $(event.currentTarget).data('size')
         if (productId + '_' + size in dataBasket) {
             for (let key in dataBasket) {
-                if (key == productId + '_' + size && dataBasket[key]['size'] == size) {
+                if (key == productId + '_' + size) {
                     dataBasket[key]['count']++;
-                    $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key));
+                    $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key)+" ₽");
                     break;
                 }
             }
         }
         else {
             dataBasket[productId + '_' + size] = { id: productId, count: 1, size: size, price: price };
+            ajaxBasket(dataBasket);
         }
     }
     else {
@@ -116,18 +117,19 @@ $(document).on('click', '.submit', event => {
             for (let key in dataBasket) {
                 if (key == productId) {
                     dataBasket[key]['count']++;
-                    $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key));
+                    $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key)+" ₽");
                     break;
                 }
             }
         }
         else {
             dataBasket[productId] = { id: productId, count: 1, price: price };
+            ajaxBasket(dataBasket);
         }
     }
     localStorage.setItem('basket', JSON.stringify(dataBasket));
     $('.output_final_prise').html(finalPrice(dataBasket) + " ₽");
-    ajaxBasket(dataBasket);
+    
 })
 $(document).on('click', '.counter__minus', event => {
     let id = event.currentTarget.dataset.basketId;
@@ -166,8 +168,10 @@ $(document).on('click', '.basket_delete', event => {
 })
 $('.next').click(event => {
     event.preventDefault();
-    $(event.target).parent().hide();
-    $(event.target).parent().next().show();
+    if (Object.keys(dataBasket).length != 0) {
+        $(event.target).parent().hide();
+        $(event.target).parent().next().show();
+    }
 })
 $('#back').click(event => {
     event.preventDefault();
@@ -186,4 +190,15 @@ window.onload = () => {
     $('.output_final_prise').html(finalPrice(dataBasket) + " ₽");
     counter();
 }
-
+// Query-плагин для установки курсора в определенной позиции pos:
+$.fn.setCursorPosition = function(pos) {
+    if ($(this).get(0).setSelectionRange) {
+      $(this).get(0).setSelectionRange(pos, pos);
+    } else if ($(this).get(0).createTextRange) {
+      var range = $(this).get(0).createTextRange();
+      range.collapse(true);
+      range.moveEnd('character', pos);
+      range.moveStart('character', pos);
+      range.select();
+    }
+  };

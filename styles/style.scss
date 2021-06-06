@@ -775,7 +775,7 @@ footer .information_conteiner .contact {
             display: flex;
             width: 100%;
             margin: 0 0 2vh 0;
-            h2{
+            h2 {
                 margin: 0 0 1vh 0;
             }
         }
@@ -861,5 +861,26 @@ footer .information_conteiner .contact {
             border: 1px solid #000;
             border-radius: 10px;
         }
+    }
+}
+.compleat_modal {
+    width: 20%;
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    background-color: #000;
+    border-radius: 20px;
+    border: 4px solid rgba(255, 147, 49, 0.9);
+    display: none;
+    h2 {
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        margin-top: 2vh;
+    }
+    button {
+        width: 40%;
+        display: block;
+        margin: 2vh auto;
     }
 }

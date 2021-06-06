@@ -943,4 +943,28 @@ footer .information_conteiner .contact ul li {
   border: 1px solid #000;
   border-radius: 10px;
 }
+
+.compleat_modal {
+  width: 20%;
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  background-color: #000;
+  border-radius: 20px;
+  border: 4px solid rgba(255, 147, 49, 0.9);
+  display: none;
+}
+
+.compleat_modal h2 {
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  margin-top: 2vh;
+}
+
+.compleat_modal button {
+  width: 40%;
+  display: block;
+  margin: 2vh auto;
+}
 /*# sourceMappingURL=style.css.map */

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles/style.css">
 
     <script src="scripts/jquery-3.4.1.js"></script>
+    <script src="scripts/jquery.maskedinput.js"></script>
     <script src="scripts/ajax.js"></script>
 
 
@@ -116,7 +117,7 @@
     <div class="modal_window" id="basket">
         <div class="hiden_block" data="basket"></div>
         <img src="img/form_fon.png" alt="" class="fon">
-        <form action="" method="post" class="basket">
+        <form method="post" class="basket">
             <div class="basket__products">
                 <div class="products"></div>
                 <div class="final_price">
@@ -129,23 +130,23 @@
             <div class="basket__information">
                 <h2>Контактная информация</h2>
                 <h4>Форма обращения</h4>
-                <input type="text" name="fullName">
+                <input required type="text" name="name">
                 <h4>Адрес</h4>
-                <input type="text" name="addres">
+                <input required type="text" name="address">
                 <h4>Телефон</h4>
-                <input type="tel" name="phone">
+                <input required type="text" id="phone" name="phone">
                 <div class="final_price">
                     <span>Итого к оплате:</span>
                     <span class="output_final_prise">0</span>
                 </div>
                 <h4>Способ оплаты</h4>
                 <div class="payment">
-                    <label><input type="radio" checked name="payment" id="">Наличными</label>
-                    <label><input type="radio" name="payment" id="">Картой</label>
+                    <label><input type="radio" checked name="payment" value="0">Наличными</label>
+                    <label><input type="radio" name="payment" value='1'id="">Картой</label>
                 </div>
                 <div class="navigation">
                     <input type="submit" id='back' onclick="event.preventDefault();" value="Назад">
-                    <input type="submit" name="add_order" value="Оформить заказ">
+                    <input type="submit" id="add_order" value="Оформить заказ">
                 </div>
             </div>
         </form>
@@ -157,8 +158,46 @@
             
         </div>
     </div>
+    <div class="compleat_modal">
+        <h2>Ваш заказ принят, ожидайте доставки</h2>
+        <button onclick="$(event.currentTarget).parent().hide()">ОК</button>
+    </div>
     <script src="scripts/open-modal.js"></script>
     <script>
+        $("#phone").click(function(){
+            $(this).setCursorPosition(2);
+        }).mask("8(999) 999-99 99");
+        $('.basket').submit(event=>{
+            event.preventDefault();
+            dataForm = $('.basket').serializeArray();
+            data = {}
+            dataForm.forEach(element => {
+                data[element['name']] = element['value'];
+            });
+            dataForm = data;
+            $.ajax({
+                url:'scripts/add_order.php',
+                type:'post',
+                data:{
+                    products:dataBasket,
+                    info:dataForm
+                },
+                success: text=>{
+                    $('.compleat_modal h2').html(text);
+                    $('.compleat_modal').show();
+                    $('#basket').hide()
+                    $("#back").parent().parent().hide();
+                    $("#back").parent().parent().prev().show();
+                    dataBasket={};
+                    $('.output_final_prise').html(finalPrice(dataBasket)+" ₽")
+                    localStorage.counter = 0;
+                    counter();
+                    ajaxBasket(dataBasket);
+                    
+                }
+            })
+            console.log(dataForm)
+        })
         $('.nav_item').click(event => {
             $('.nav_item').removeClass('selected');
             $(event.currentTarget).addClass('selected');

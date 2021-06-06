@@ -1,11 +1,5 @@
 <?php
 $link = mysqli_connect('localhost', 'root', '', 'diplom');
-function echos($arr)
-{
-	echo ('<pre>');
-	print_r($arr);
-	echo ('</pre>');
-}
 if(isset($_POST['products'])){
 	foreach($_POST['products'] as $key => $product){
 		$data = $link->query("SELECT * FROM product WHERE id = ".$product['id'])->fetch_assoc();
