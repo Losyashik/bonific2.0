@@ -5,7 +5,10 @@ $result = $link->query("INSERT INTO data_user(name, number, address, payment) VA
 if ($result){
     $id = $link->insert_id;
     foreach($_POST['products'] as $product){
-        $result = $link->query("INSERT INTO `basket`(`data_user_id`, `product_id`, `size`, `count`) VALUES ($id,'".$product['id']."','".$product['size']."','".$product['count']."')");
+        if(isset($_POST['size']))
+            $result = $link->query("INSERT INTO `basket`(`data_user_id`, `product_id`, `size`, `count`) VALUES ($id,'".$product['id']."','".$product['size']."','".$product['count']."')");
+        else
+            $result = $link->query("INSERT INTO `basket`(`data_user_id`, `product_id`, `size`, `count`) VALUES ($id,'".$product['id']."','NULL','".$product['count']."')");
     }
     if($result){
         echo"Ваш заказ принят, ожидайте доставки".$link->error;
