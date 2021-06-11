@@ -102,6 +102,7 @@ $(document).on('click', '.submit', event => {
             for (let key in dataBasket) {
                 if (key == productId + '_' + size) {
                     dataBasket[key]['count']++;
+                    $('.counter__count[data-basket-id="' + key + '"]').html(dataBasket[key]['count'])
                     $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key)+" ₽");
                     break;
                 }
@@ -117,6 +118,7 @@ $(document).on('click', '.submit', event => {
             for (let key in dataBasket) {
                 if (key == productId) {
                     dataBasket[key]['count']++;
+                    $('.counter__count[data-basket-id="' + key + '"]').html(dataBasket[key]['count'])
                     $('.price[data-basket-id="' + key + '"]').html(productPrice(dataBasket, key)+" ₽");
                     break;
                 }
